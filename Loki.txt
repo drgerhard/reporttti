@@ -1,0 +1,14 @@
+﻿2026-01-27 10.38.01 - Testi: yhteinen funktio toimii
+2026-01-27 10.39.40 - [INFO] Valvonta aloitettu kansiolle: 
+2026-01-27 10.39.40 - [ERROR] Cannot bind argument to parameter 'Path' because it is null.
+2026-01-27 10.40.42 - [INFO] Valvonta aloitettu kansiolle: Testikansio
+2026-01-27 10.40.42 - [ERROR] Kansiota ei lÃ¶ydy: Testikansio
+2026-01-27 10.42.21 - [INFO] Valvonta aloitettu kansiolle: Testikansio
+2026-01-27 10.42.21 - [INFO] Kansio lÃ¶ytyi
+2026-01-27 10.42.21 - [INFO] Tiedostojen mÃ¤Ã¤rÃ¤: 1
+2026-01-27 10.42.41 - [INFO] Valvonta aloitettu kansiolle: C:\tehtava\Testikansio
+2026-01-27 10.42.41 - [INFO] Kansio lÃ¶ytyi
+2026-01-27 10.42.41 - [INFO] Tiedostojen mÃ¤Ã¤rÃ¤: 1
+2026-01-27 10.56.29 - [INFO] Valvonta aloitettu kansiolle: Testikansio
+2026-01-27 10.56.29 - [INFO] Kansio lÃ¶ytyi
+2026-01-27 10.56.29 - [INFO] Tiedostojen mÃ¤Ã¤rÃ¤: 1
