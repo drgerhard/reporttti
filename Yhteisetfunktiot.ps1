@@ -1,9 +1,16 @@
 function Kirjoita-Loki {
     param (
         [string]$Viesti,
-        [string]$Tiedosto = "Loki.txt"
+        [string]$Tiedosto = "loki.txt"
     )
-
-    $Aika = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    "$Aika - $Viesti" | Out-File -FilePath $Tiedosto -Append -Encoding UTF8
+ 
+    "$((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')) - $Viesti" |
+        Out-File -FilePath $Tiedosto -Append -Force -Encoding Unicode
+}
+ 
+function Luo-Kansio {
+    param ([string]$Nimi)
+    if (-not (Test-Path -Path $Nimi)) {
+        New-Item -ItemType Directory -Path $Nimi | Out-Null
+    }
 }
