@@ -6,22 +6,25 @@ param (
 . .\YhteisetFunktiot.ps1
 
 try {
-    # Ajetaan komento etänä (tai lokaalisti jos localhost)
-    $tulos = Invoke-Command -ComputerName $Kone -ScriptBlock {
-        [PSCustomObject]@{
-            Aika  = Get-Date
-            Kone  = $env:COMPUTERNAME
+    if ($Kone -eq "localhost") {
+        $tulos = [PSCustomObject]@{
+            Aika = Get-Date
+            Kone = $env:COMPUTERNAME
+        }
+    }
+    else {
+        $tulos = Invoke-Command -ComputerName $Kone -ScriptBlock {
+            [PSCustomObject]@{
+                Aika = Get-Date
+                Kone = $env:COMPUTERNAME
+            }
         }
     }
 
-    # Lokitiedoston polku
-    $Loki = "C:\Tyokalupakki\Etavalvonta.log"
-
     # Kirjataan lokiin
-    $tulos | ForEach-Object {
-        "$($_.Aika) - $($_.Kone)" | Out-File -FilePath $Loki -Append -Encoding utf8
-    }
+    Kirjoita-Loki "$($tulos.Aika) $($tulos.Kone)"
 }
 catch {
-    "Virhe koneessa $Kone : $_" | Out-File -FilePath "C:\Tyokalupakki\Etavalvonta_error.log" -Append
+    Kirjoita-Loki "Virhe etähallinnassa: $($_.Exception.Message)"
+    Write-Host "Virhe: $($_.Exception.Message)"
 }
